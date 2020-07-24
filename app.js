@@ -13,5 +13,5 @@ app.get('/', function(req, res){
   res.sendFile("/thePetProject/temp.html");
 });
 
-console.log('Express started. Listening on port', process.env.PORT || 3005);
-app.listen(process.env.PORT || 3005);
+console.log('Express started. Listening on port', process.env.PORT || 3000);
+app.listen(process.env.PORT || 3000);
