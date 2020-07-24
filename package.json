@@ -1,0 +1,23 @@
+{
+  "name": "thepetproject",
+  "version": "1.0.0",
+  "description": "a pet raising simulation game on slack app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZijunZhao98/thePetProject.git"
+  },
+  "author": "Zijun Zhao, Zihan Yang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZijunZhao98/thePetProject/issues"
+  },
+  "homepage": "https://github.com/ZijunZhao98/thePetProject#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node.js": "0.0.0"
+  }
+}
