@@ -10,7 +10,7 @@ var app = express();
 
 
 app.get('/', function(req, res){
-  res.sendFile('temp.html');
+  res.sendFile(path.join(__dirname+ '/temp.html'));
 });
 
 console.log('Express started. Listening on port', process.env.PORT || 3000);
