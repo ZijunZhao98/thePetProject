@@ -7,22 +7,27 @@ const app = new App({
 });
 
 
-app.event('app_home_opened', ({ event, say }) => {
-  // Look up the user from DB
-  let user = store.getUser(event.user);
-
-  if(!user) {
-    user = {
-      user: event.user,
-      channel: event.channel
-    };
-    store.addUser(user);
-
-    say(`Hello world, and welcome <@${event.user}>!`);
-  } else {
-    say('Hi again!');
-  }
+app.message('hello', async ({ message, say }) => {
+  // say() sends a message to the channel where the event was triggered
+  await say(`Hey there <@${message.user}>!`);
 });
+
+// app.event('app_home_opened', ({ event, say }) => {
+//   // Look up the user from DB
+//   let user = store.getUser(event.user);
+//
+//   if(!user) {
+//     user = {
+//       user: event.user,
+//       channel: event.channel
+//     };
+//     store.addUser(user);
+//
+//     say(`Hello world, and welcome <@${event.user}>!`);
+//   } else {
+//     say('Hi again!');
+//   }
+// });
 
 
 // Start your app
