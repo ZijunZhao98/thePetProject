@@ -17,7 +17,6 @@ var petSchema = new Schema({
 
 var userSchema = new Schema({
     slack_id: String,
-    slack_name: String,
     per_id: String,
     money: Number,
 });

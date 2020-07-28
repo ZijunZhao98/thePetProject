@@ -12,13 +12,13 @@ const app = new App({
 app.event('app_home_opened', ({ event, say }) => {
   // Look up the user from DB
   let result;
-  User.find({slack_name: event.user}, function(err, user){
+  User.find({slack_id: event.user}, function(err, user){
     if (err) console.log("Err", err);
     if(user.length > 0){
       say('you are already in database!');
     }else{
       new User({
-        slack_name: event.user,
+        slack_id: event.user,
         // slack_dmid: //here
       }).save(function(err, user){
         if(err) console.log("Err", err);
