@@ -19,6 +19,7 @@ app.event('app_home_opened', ({ event, say }) => {
     }else{
       new User({
         slack_id: event.user,
+        money: 100,
         // slack_dmid: //here
       }).save(function(err, user){
         if(err) console.log("Err", err);
