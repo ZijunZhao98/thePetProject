@@ -41,6 +41,7 @@ app.message('info', async ({ message, say }) => {
 
 app.message('newpet', async ({ message, say }) => {
   new Pet({
+    slack_id: message.user,
     pet_name: "jack",
     pet_number: 01,
     create_date: new Date(),
