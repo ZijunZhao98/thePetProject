@@ -36,7 +36,7 @@ app.message('info', async ({ message, say }) => {
     }else{
       say(`oops <@${message.user}>, you don't own a pet yet! Type newpet to adopt a new pet!`);
     }
-  }
+  })
 });
 
 app.message('newpet', async ({ message, say }) => {
