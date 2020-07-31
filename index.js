@@ -31,13 +31,12 @@ app.message('info', async ({ message, say }) => {
   Pet.find({slack_id: event.user}, function(err, pet){
     if (err) console.log("Err", err);
     if(user.length > 0){
-      await say(`your pet info is here: \n name: ${pet.pet_name} \n health:${pet.health}
+      say(`your pet info is here: \n name: ${pet.pet_name} \n health:${pet.health}
         \n happiness: ${pet.happiness} \n level: ${pet.level} \n money: ${pet.money}`);
     }else{
-      await say(`oops <@${message.user}>, you don't own a pet yet! Type newpet to adopt a new pet!`);
+      say(`oops <@${message.user}>, you don't own a pet yet! Type newpet to adopt a new pet!`);
     }
   }
-  await say(`Hey there <@${message.user}>!`);
 });
 
 app.message('newpet', async ({ message, say }) => {
