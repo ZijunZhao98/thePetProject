@@ -13,18 +13,12 @@ var petSchema = new Schema({
     health: Number,
     happiness: Number,
     level: Number,
-});
-
-var userSchema = new Schema({
-    slack_id: String,
-    per_id: String,
     money: Number,
 });
 
-var User = mongoose.model('User', userSchema);
+
 var Pet = mongoose.model('Pet', petSchema);
 
 module.exports = {
     Pet: Pet,
-    User: User,
 };
