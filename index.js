@@ -30,7 +30,7 @@ app.message('info', async ({ message, say }) => {
   // say() sends a message to the channel where the event was triggered
   Pet.find({slack_id: message.user}, function(err, pet){
     if (err) console.log("Err", err);
-    if(user.length > 0){
+    if(pet.length > 0){
       say(`your pet info is here: \n name: ${pet.pet_name} \n health:${pet.health}
         \n happiness: ${pet.happiness} \n level: ${pet.level} \n money: ${pet.money}`);
     }else{
