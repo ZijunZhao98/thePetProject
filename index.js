@@ -28,7 +28,7 @@ app.message('hello', async ({ message, say }) => {
 
 app.message('info', async ({ message, say }) => {
   // say() sends a message to the channel where the event was triggered
-  Pet.find({slack_id: event.user}, function(err, pet){
+  Pet.find({slack_id: message.user}, function(err, pet){
     if (err) console.log("Err", err);
     if(user.length > 0){
       say(`your pet info is here: \n name: ${pet.pet_name} \n health:${pet.health}
@@ -52,7 +52,7 @@ app.message('newpet', async ({ message, say }) => {
   }).save(function(err, user){
     if(err) console.log("Err", err);
     console.log("save success");
-    say(`Hello <@${event.user}>! We made a new pet for you!`);
+    say(`Hello <@${message.user}>! We made a new pet for you!`);
   });
 });
 
