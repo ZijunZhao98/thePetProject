@@ -26,11 +26,12 @@ app.message('hello', async ({ message, say }) => {
 
 app.message('info', async ({ message, say }) => {
   // say() sends a message to the channel where the event was triggered
-  Pet.find({slack_id: message.user}, function(err, pet){
+  Pet.findOne({slack_id: message.user}, function(err, pet){
     if (err) console.log("Err", err);
-    if(pet.length > 0){
+    if(pet){
       say(`your pet info is here: \n name: ${pet.pet_name} \n health:${pet.health}
         \n happiness: ${pet.happiness} \n level: ${pet.level} \n money: ${pet.money}`);
+
     }else{
       say(`oops <@${message.user}>, you don't own a pet yet! Type newpet to adopt a new pet!`);
     }
