@@ -13,9 +13,7 @@ app.event('app_home_opened', ({ event, say }) => {
   let result;
   Pet.find({slack_id: event.user}, function(err, user){
     if (err) console.log("Err", err);
-    if(user.length > 0){
-      say('Hey you have a pet!nice~~');
-    }else{
+    if(user.length == 0){
       say(`Hello <@${event.user}>! You dont seem to own a pet, do you want a new pet? type newpet a adopt a new pet!`);
     }
   });
@@ -40,21 +38,29 @@ app.message('info', async ({ message, say }) => {
 });
 
 app.message('newpet', async ({ message, say }) => {
-  new Pet({
-    slack_id: message.user,
-    pet_name: "jack",
-    pet_number: 01,
-    create_date: new Date(),
-    health: 100,
-    happiness: 80,
-    level: 1,
-    money: 100,
-    // slack_dmid: //here
-  }).save(function(err, user){
-    if(err) console.log("Err", err);
-    console.log("save success");
-    say(`Hello <@${message.user}>! We made a new pet for you!`);
-  });
+
+  Pet.find({slack_id: message.user}, function(err, pet){
+    if (err) console.log("Err", err);
+    if(pet.length > 0){
+      say(`sorry, you already have a pet. If you want a new pet, you have to spend $100 to purchase an adoption ticket.`);
+    }else{
+      new Pet({
+        slack_id: message.user,
+        pet_name: "jack",
+        pet_number: 01,
+        create_date: new Date(),
+        health: 100,
+        happiness: 80,
+        level: 1,
+        money: 100,
+        // slack_dmid: //here
+      }).save(function(err, user){
+        if(err) console.log("Err", err);
+        console.log("save success");
+        say(`Hello <@${message.user}>! We made a new pet for you!`);
+      });
+    }
+  })
 });
 
 
