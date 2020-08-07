@@ -21,7 +21,7 @@ function getPets() {
     var SuperRareAnimals = {
         '10': 'SR',
     };
- 
+
     var Key = getRandom();
     // If we got 0 from getRandom(), we ask it to get a new number cuz we don't want 0 as a probability
     if (Key < 0) {
@@ -41,4 +41,6 @@ function getPets() {
 var pet = getPets();
 console.log(pet);
 
-export { getPets };
+module.exports = {
+    getPets,
+};
