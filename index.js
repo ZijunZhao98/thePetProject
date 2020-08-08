@@ -1,6 +1,6 @@
 const { App } = require('@slack/bolt');
 const models = require('./models/models');
-const getPets = require('./newpet.js');
+let { getPets } = require('./newpet');
 let Pet = models.Pet;
 
 const app = new App({
