@@ -19,7 +19,7 @@
   "homepage": "https://github.com/ZijunZhao98/thePetProject#readme",
   "dependencies": {
     "@slack/bolt": "^2.1.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mongoose": "^5.9.27",
     "node.js": "0.0.0"
   }
